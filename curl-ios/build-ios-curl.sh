@@ -12,8 +12,8 @@ else
 	echo "Using curl-${VERSION}.tar.gz"
 fi
 
-SDKVERSION="7.1"
-MIN_VERSION="4.3"
+SDKVERSION="8.0"
+MIN_VERSION="7.0"
 
 ARCHS="i386 x86_64 armv7 armv7s arm64"
 DEVELOPER=`xcode-select -print-path`
@@ -57,7 +57,7 @@ do
   echo "Building libcurl for ${PLATFORM} ${SDKVERSION} ${ARCH} ${HOST}"
   echo "Please stand by...path=${CURRENTPATH}"
 
-  export IPHONEOS_DEPLOYMENT_TARGET="4.3" 
+  export IPHONEOS_DEPLOYMENT_TARGET="8.0" 
   export CC="${DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang"
   export CPPFLAGS="-arch ${ARCH} -pipe -Os -gdwarf-2 -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk -I${OPENSSL}/include"
   export LDFLAGS="-arch ${ARCH} -isysroot ${DEVELOPER}/Platforms/${PLATFORM}.platform/Developer/SDKs/${PLATFORM}${SDKVERSION}.sdk -L${OPENSSL}/lib"
